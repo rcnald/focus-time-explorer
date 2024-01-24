@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Focus Timer</title>
+  <meta name="author" content="Ronaldo Junior">
+  <meta name="description" content="Timer estilo pomodoro, com sons ambientes">
+  <meta name="keywords" content="timer, pomodoro, relax, productivity">
+  <meta name="robots" content="index, follow">
+  <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+<body>
+	<main>
+		<section class="timer">
+			<div class="clock">
+				<span class="minutes">
+					<span 
+						class="text" 
+						contenteditable 
+						aria-label="Alterar minutos"
+					>
+						25
+					</span>
+					<span class="sr-only">minutos</span>
+				</span>
+				<span class="double-dots">:</span>
+				<span class="seconds" aria-hidden>
+					<span 
+						class="text" 
+						contenteditable 
+						aria-label="Alterar segundos"
+					>
+						00
+					<span class="sr-only">segundos</span>
+				</span>
+			</div>
+			<div class="actions">
+				<button data-action="play">
+					<box-icon name='play' aria-hidden></box-icon>
+					<span class="sr-only">Ativar Timer</span>
+				</button>
+				<button data-action="pause">
+					<box-icon name='pause' aria-hidden></box-icon>
+					<span class="sr-only">Parar Timer</span>
+				</button>
+				<button data-action="forward" data-minutes="5">
+					<box-icon name='plus' aria-hidden></box-icon>
+					<span class="sr-only">Avançar Timer</span>
+				</button>
+				<button data-action="backward" data-minutes="5">
+					<box-icon name='minus' aria-hidden></box-icon>
+					<span class="sr-only">Retroceder Timer</span>
+				</button>
+			</div>
+		</section>
+		<section class="sound-board">
+			<label for="forest" aria-label="sons de floresta">
+				<box-icon type='solid' name='tree' aria-hidden></box-icon>
+				<input type="radio" name="sound" id="forest" value="forest">
+			</label>
+			<label for="rain" aria-label="sons de chuva">
+				<box-icon name='cloud-drizzle' aria-hidden></box-icon>
+				<input type="radio" name="sound" id="rain" value="rain">
+			</label>
+			<label for="coffee" aria-label="sons de cafeteria">
+				<box-icon name='store-alt' aria-hidden></box-icon>
+				<input type="radio" name="sound" id="coffee" value="coffee">
+			</label>
+			<label for="fire" aria-label="sons de lareira">
+				<box-icon name='hot' type='solid' aria-hidden></box-icon>
+				<input type="radio" name="sound" id="fire" value="fire">
+			</label>
+		</section>
+	</main>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
