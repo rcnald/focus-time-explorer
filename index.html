@@ -16,7 +16,7 @@
 	<main>
 		<section class="timer">
 			<div class="clock">
-				<span class="minutes">
+				<span class="time minutes">
 					<span 
 						class="text" 
 						contenteditable 
@@ -27,51 +27,102 @@
 					<span class="sr-only">minutos</span>
 				</span>
 				<span class="double-dots">:</span>
-				<span class="seconds" aria-hidden>
+				<span class="time seconds" aria-hidden>
 					<span 
 						class="text" 
 						contenteditable 
 						aria-label="Alterar segundos"
 					>
 						00
+          </span>
 					<span class="sr-only">segundos</span>
 				</span>
 			</div>
 			<div class="actions">
-				<button data-action="play">
-					<box-icon name='play' aria-hidden></box-icon>
+				<button data-action="play" title="Ativar Timer">
+					<box-icon name='play' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Ativar Timer</span>
 				</button>
-				<button data-action="pause">
-					<box-icon name='pause' aria-hidden></box-icon>
+				<button data-action="pause" title="Parar Timer">
+					<box-icon name='pause' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Parar Timer</span>
 				</button>
-				<button data-action="forward" data-minutes="5">
-					<box-icon name='plus' aria-hidden></box-icon>
+				<button data-action="forward" data-minutes="5" title="Avançar Timer">
+					<box-icon name='plus' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Avançar Timer</span>
 				</button>
-				<button data-action="backward" data-minutes="5">
-					<box-icon name='minus' aria-hidden></box-icon>
+				<button 
+					data-action="backward" 
+					data-minutes="5" 
+					title="Retroceder Timer"
+				>
+					<box-icon name='minus' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Retroceder Timer</span>
 				</button>
 			</div>
 		</section>
 		<section class="sound-board">
-			<label for="forest" aria-label="sons de floresta">
-				<box-icon type='solid' name='tree' aria-hidden></box-icon>
-				<input type="radio" name="sound" id="forest" value="forest">
+			<label 
+				for="forest" 
+				aria-label="sons de floresta" 
+				title="sons de floresta"
+			>
+				<box-icon 
+					type='solid' 
+					name='tree' 
+					color="currentColor"  
+					size="80px" 
+					aria-hidden
+				>
+				</box-icon>
+				<input 
+					class="sr-only" 
+					type="checkbox" 
+					name="forest" 
+					id="forest" 
+					data-sound
+				>
 			</label>
-			<label for="rain" aria-label="sons de chuva">
-				<box-icon name='cloud-drizzle' aria-hidden></box-icon>
-				<input type="radio" name="sound" id="rain" value="rain">
+			<label for="rain" aria-label="sons de chuva" title="sons de chuva">
+				<box-icon 
+					name='cloud-drizzle' 
+					color="currentColor"  
+					size="80px" 
+					aria-hidden
+				>
+				</box-icon>
+				<input class="sr-only" type="checkbox" name="rain" id="rain" data-sound>
 			</label>
-			<label for="coffee" aria-label="sons de cafeteria">
-				<box-icon name='store-alt' aria-hidden></box-icon>
-				<input type="radio" name="sound" id="coffee" value="coffee">
+			<label 
+				for="coffee" 
+				aria-label="sons de cafeteria" 
+				title="sons de cafeteria"
+			>
+				<box-icon 
+					name='store-alt' 
+					color="currentColor" 
+					size="80px" 
+					aria-hidden
+				>
+				</box-icon>
+				<input 
+					class="sr-only" 
+					type="checkbox" 
+					name="coffee" 
+					id="coffee" 
+					data-sound
+				>
 			</label>
-			<label for="fire" aria-label="sons de lareira">
-				<box-icon name='hot' type='solid' aria-hidden></box-icon>
-				<input type="radio" name="sound" id="fire" value="fire">
+			<label for="fire" aria-label="sons de lareira" title="sons de lareira">
+				<box-icon 
+					name='hot' 
+					color="currentColor"  
+					type='solid' 
+					size="80px" 
+					aria-hidden
+				>
+				</box-icon>
+				<input class="sr-only" type="checkbox" name="fire" id="fire" data-sound>
 			</label>
 		</section>
 	</main>
