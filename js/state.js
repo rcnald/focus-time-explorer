@@ -48,7 +48,27 @@ const state = {
                 state.time.seconds = seconds;
             }
         }
-    }
+    },
+    toggleMusicPath({path, isChecked}){
+        if(isChecked){
+            this.activeMusics.push({path, audio: null})
+        }
+        this.toggleMusic(path)
+    },
+    toggleMusic(path){
+        const music = this.activeMusics.find(obj => {
+            return obj.path === path
+        })
+        
+        if(music.audio){
+            music.audio.pause()
+            const pathIndex = this.activeMusics.indexOf(music)
+            this.activeMusics.splice(pathIndex, 1)
+        } else{
+            music.audio = new Audio(music.path)
+            music.audio.play()
+        }
+    },
 }
 
 export default state

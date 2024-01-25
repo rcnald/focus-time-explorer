@@ -2,8 +2,11 @@ import clock from "./clock.js";
 import state from "./state.js"
 
 const actionContainer = document.getElementsByClassName('actions')[0]
+const soundContainer = document.getElementsByClassName('sounds')[0]
+
 const minutesSpan = document.querySelector('.minutes span')
 const secondsSpan = document.querySelector('.seconds span')
+
 
 clock.updateDOMTime()
 clock.updateDOMToggle()
@@ -32,6 +35,23 @@ actionContainer.addEventListener('click', (e) => {
     clock[action]({minutes})
     button.blur()
   }
+})
+
+soundContainer.addEventListener('click', (e) => {
+  const input = e.target.closest('input')
+  const path = input?.dataset.path
+  const isChecked = input?.checked
+  if(path) {
+    state.toggleMusicPath({path, isChecked})
+
+  }
+
+  // const minutes = Number(button?.dataset.minutes ?? 2) 
+
+  // if(clock[action]){
+  //   clock[action]({minutes})
+  //   button.blur()
+  // }
 })
 
 function handleInput(e) {
