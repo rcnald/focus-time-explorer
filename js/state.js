@@ -1,3 +1,5 @@
+import clock from "./clock.js"
+
 const state = {
     isRunning : false,
     time : {
@@ -22,6 +24,29 @@ const state = {
             this.time.seconds = 59
         } else {
             this.time.seconds--
+        }
+    },
+    verifyTimeIsGreater({ minutes, seconds }) {  
+        if (minutes !== undefined && !seconds) {
+            if (minutes > clock.maxMinutes) {
+                state.time.minutes = (state.time.seconds !== 0) ? (
+                    clock.maxMinutes - 1
+                ) : (
+                    clock.maxMinutes
+                )
+            } else {
+                state.time.minutes = minutes;
+            }
+        } else if (!minutes && seconds !== undefined) {
+            if (seconds > clock.maxSeconds && (
+                state.time.minutes >= clock.maxMinutes
+            )) {
+                state.time.seconds = 0;
+            } else if (seconds > clock.maxSeconds) {
+                state.time.seconds = clock.maxSeconds;
+            } else {
+                state.time.seconds = seconds;
+            }
         }
     }
 }

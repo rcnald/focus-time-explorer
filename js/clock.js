@@ -1,10 +1,12 @@
 import state from "./state.js"
 
 const clock = {
-    toggleTimer(minutes, seconds){
+    maxMinutes : 60,
+    maxSeconds : 59,
+    toggleTimer({minutes = state.time.minutes, seconds = state.time.seconds}){
         state.isRunning ? this.pause() : this.start(minutes, seconds)
         state.toggleStateIsRunning()
-        this.updateDOMtoggle()
+        this.updateDOMToggle()
     },
     start(minutes, seconds){
         state.countDownId = setInterval(() => {
@@ -12,15 +14,33 @@ const clock = {
                 state.resetStateTime({minutes, seconds})
                 state.toggleStateIsRunning()
                 this.pause()
-                this.updateDOMtoggle()
+                this.updateDOMToggle()
             } else {
                 state.countDown()
             }
             this.updateDOMTime()
-        },100)
+        },1000)
     },
     pause(){
         clearInterval(state.countDownId)
+    },
+    forward({minutes}){
+        const finalMinutes = minutes + state.time.minutes
+
+        if(finalMinutes > this.maxMinutes){
+            state.time.minutes = (state.time.seconds !== 0) ? this.maxMinutes - 1 : this.maxMinutes
+        } else {
+            state.time.minutes += minutes
+        }
+        this.updateDOMTime()
+    },
+    backward({minutes}){
+        state.time.minutes - minutes < 0 ? (
+            state.time.minutes = 0
+        ) : (
+            state.time.minutes -= minutes
+        )
+        this.updateDOMTime()
     },
     updateDOMTime(){
         const minutesSpan = document.querySelector('.minutes span')
@@ -28,7 +48,7 @@ const clock = {
         minutesSpan.textContent = String(state.time.minutes).padStart(2, "0")
         secondsSpan.textContent = String(state.time.seconds).padStart(2, "0")
     },
-    updateDOMtoggle(){
+    updateDOMToggle(){
         const toggle = document.querySelector('[data-action="toggleTimer"]')
         const icon = toggle.getElementsByTagName('box-icon')[0]
         state.isRunning ? icon.setAttribute('name', 'pause') : icon.setAttribute('name', 'play')
