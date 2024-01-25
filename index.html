@@ -34,7 +34,7 @@
 						aria-label="Alterar segundos"
 					>
 						00
-          </span>
+          			</span>
 					<span class="sr-only">segundos</span>
 				</span>
 			</div>
@@ -43,10 +43,6 @@
 					<box-icon name='play' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Ativar Timer</span>
 				</button>
-				<!-- <button data-action="pause" title="Parar Timer">
-					<box-icon name='pause' size="lg" aria-hidden></box-icon>
-					<span class="sr-only">Parar Timer</span>
-				</button> -->
 				<button data-action="forward" data-minutes="5" title="Avançar Timer">
 					<box-icon name='plus' size="lg" aria-hidden></box-icon>
 					<span class="sr-only">Avançar Timer</span>
@@ -61,7 +57,7 @@
 				</button>
 			</div>
 		</section>
-		<section class="sound-board">
+		<section class="sounds">
 			<label 
 				for="forest" 
 				aria-label="sons de floresta" 
@@ -81,6 +77,7 @@
 					name="forest" 
 					id="forest" 
 					data-sound
+					data-path="./assets/Floresta.wav"
 				>
 			</label>
 			<label for="rain" aria-label="sons de chuva" title="sons de chuva">
@@ -91,7 +88,14 @@
 					aria-hidden
 				>
 				</box-icon>
-				<input class="sr-only" type="checkbox" name="rain" id="rain" data-sound>
+				<input 
+					class="sr-only" 
+					type="checkbox" 
+					name="rain" 
+					id="rain" 
+					data-sound
+					data-path="./assets/Chuva.wav"
+				>
 			</label>
 			<label 
 				for="coffee" 
@@ -111,6 +115,7 @@
 					name="coffee" 
 					id="coffee" 
 					data-sound
+					data-path="./assets/Cafeteria.wav"
 				>
 			</label>
 			<label for="fire" aria-label="sons de lareira" title="sons de lareira">
@@ -122,10 +127,17 @@
 					aria-hidden
 				>
 				</box-icon>
-				<input class="sr-only" type="checkbox" name="fire" id="fire" data-sound>
+				<input 
+					class="sr-only" 
+					type="checkbox" 
+					name="fire" 
+					id="fire" 
+					data-sound
+					data-path="./assets/Lareira.wav"
+				>
 			</label>
 		</section>
 	</main>
-  <script type="module" src="./js/main.js"></script>
+  	<script type="module" src="./js/main.js"></script>
 </body>
 </html>
