@@ -54,7 +54,7 @@ main{
 
 .clock .time{
     min-height: 1em;
-    width: 100%;
+    width: fit-content;
 }
 
 .clock .double-dots{
@@ -84,13 +84,13 @@ main{
     transform: scale(1.05);
 }
 
-.sound-board{
+.sounds{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 2rem;
 }
 
-.sound-board label {
+.sounds label {
     display: grid;
     place-items: center;
     padding: 2.5rem;
@@ -100,16 +100,16 @@ main{
     transition: all 200ms ease-in-out;
 }
 
-.sound-board label:hover{
+.sounds label:hover{
     transform: scale(1.05);
 }
 
-.sound-board label:has(input[type=checkbox]:checked){
+.sounds label:has(input[type=checkbox]:checked){
     background: var(--color-action);
     color: white;
 }
 
-.sound-board label:has(input[type=checkbox]:focus){
+.sounds label:has(input[type=checkbox]:focus){
     transform: scale(1.05);
 }
 
