@@ -28,7 +28,11 @@ const clock = {
         const finalMinutes = minutes + state.time.minutes
 
         if(finalMinutes > this.maxMinutes){
-            state.time.minutes = (state.time.seconds !== 0) ? this.maxMinutes - 1 : this.maxMinutes
+            state.time.minutes = (state.time.seconds !== 0) ? (
+                this.maxMinutes - 1 
+            ) : (
+                this.maxMinutes
+            )
         } else {
             state.time.minutes += minutes
         }
@@ -51,7 +55,7 @@ const clock = {
     updateDOMToggle(){
         const toggle = document.querySelector('[data-action="toggleTimer"]')
         const icon = toggle.getElementsByTagName('box-icon')[0]
-        state.isRunning ? icon.setAttribute('name', 'pause') : icon.setAttribute('name', 'play')
+        icon.setAttribute('name', `${state.isRunning ? 'pause' : 'play'}`)
     }
 }
 

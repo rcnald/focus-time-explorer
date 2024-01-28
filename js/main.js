@@ -45,13 +45,6 @@ soundContainer.addEventListener('click', (e) => {
     state.toggleMusicPath({path, isChecked})
 
   }
-
-  // const minutes = Number(button?.dataset.minutes ?? 2) 
-
-  // if(clock[action]){
-  //   clock[action]({minutes})
-  //   button.blur()
-  // }
 })
 
 function handleInput(e) {
